@@ -1,5 +1,9 @@
 MESSAGES.LOAD_SOUND.subscribe((request, sender, sendResponse) => {
-    googleTranslateTts(request.word, request.languageCode)
+    const result = (request.languageCode === 'vi-VN')
+        ? fptCloudTts(request.word)
+        : googleTranslateTts(request.word, request.languageCode);
+
+    result
         .then(/** Base64File */ base64file => {
             sendResponse({
                 success: true,
@@ -12,5 +16,6 @@ MESSAGES.LOAD_SOUND.subscribe((request, sender, sendResponse) => {
                 error: error.message
             });
         });
+
     return true;
 });

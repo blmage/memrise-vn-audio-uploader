@@ -11,6 +11,7 @@
     "scripts": [
       "js/compatibility.js",
       "js/messages.js",
+      "js/background/textToSpeech/fptCloud.js",
       "js/background/textToSpeech/googleTranslate.js",
       "js/background/background.js"
     ]
